@@ -4,11 +4,13 @@ import ExpenseItem from './components/Expenseitem'
 function App() {
   const expense = [
   {
+    id: 'e1',
     date: new Date(2023, 9, 6),
     Title : 'New Book',
     price : 30.99
   },
   {
+    id: 'e2',
     date: new Date(2023, 9, 6),
     Title : 'New Jeans',
     price : 99.99
