@@ -1,23 +1,30 @@
+import ExpenseItem from './ExpenseItem'
+import './Expenses.css'
+import Card from './Card'
 
-import ExpenseItem from './Expenseitem';
-import './Expenses.css'; 
-
-function Expenses(props) {
-    console.log(props);
-    
+function Expenses() {
+    const expenses = [
+        {
+          date: new Date(2023, 9, 6),
+          title: 'New Book',
+          price: 30.99
+        },
+        {
+          date: new Date(2023, 9, 6),
+          title: 'New Jeans',
+          price: 99.99
+        }
+    ]  
     return (
-      <div>
-        {props.items.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
-      </div>
-    );
-  }
-  
+        <Card className='expenses'>
+            <ExpenseItem
+            expenseData = {expenses[0]}  
+            />
+            <ExpenseItem
+            expenseData = {expenses[1]}  
+            />
+        </Card>
+    )
+} 
 
-export default Expenses;
+export default Expenses
