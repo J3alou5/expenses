@@ -1,4 +1,4 @@
-import './Expenseitem.css'
+import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate'
 import Card from '../UI/Card'
 import {useState} from 'react'  
@@ -25,4 +25,5 @@ const ExpenseItem = (props) => {
         </Card>
     )
 }
+
 export default ExpenseItem
