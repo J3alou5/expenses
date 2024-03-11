@@ -4,7 +4,7 @@ import {useState} from 'react'
 import './ExpensesFilter.css'
 
 const ExpensesFilter = (props) => {
-    const [selectedYear, setSelectedYear] = useState('')
+    const [selectedYear, setSelectedYear] = useState('2024')
 
     const yearChangeHandler = (event) => {
         const selectedYear = event.target.value
