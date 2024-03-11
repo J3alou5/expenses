@@ -1,3 +1,4 @@
+import {useState} from 'react' 
 import ExpenseItem from './ExpenseItem'
 import './Expenses.css'
 import Card from '../UI/Card'
@@ -5,8 +6,17 @@ import ExpensesFilter from './ExpensesFilter'
 
 const Expenses = (props) => {
 
+  const [filteredExpenses, setFilteredExpenses] = useState(props.expenses)
+
   const saveYearDataHandler = (yearData) => {
-    console.log(yearData);
+    const yearToFilter = parseInt(yearData, 10)
+
+    if (isNaN(yearToFilter)) {
+      setFilteredExpenses(props.expenses)
+    } else {
+      const filteredArray = props.expenses.filter(item => item.date.getFullYear() === yearToFilter)
+      setFilteredExpenses(filteredArray)
+    } 
   } 
 
   return (
@@ -14,7 +24,7 @@ const Expenses = (props) => {
           <ExpensesFilter onSaveYearData ={saveYearDataHandler}/>
 
           {
-            props.expenses.map((expense) => {
+            filteredExpenses.map((expense) => {
               return <ExpenseItem expenseData = {expense} key={expense.id}/> 
             })
           } 
