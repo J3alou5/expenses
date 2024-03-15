@@ -1,4 +1,4 @@
-import {useState} from 'react' 
+import {useState, useEffect} from 'react' 
 import './Expenses.css'
 import Card from '../UI/Card'
 import ExpensesFilter from './ExpensesFilter'
@@ -18,6 +18,10 @@ const Expenses = (props) => {
       setFilteredExpenses(filteredArray)
     } 
   }
+
+  useEffect(() => {
+    setFilteredExpenses(props.expenses);
+  }, [props.expenses]);
 
   return (
       <Card className='expenses'>
